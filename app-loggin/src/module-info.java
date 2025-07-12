@@ -1,3 +1,3 @@
-module app.loggin {
+open module app.loggin {
     exports com.github.gverdum.logging;
 }
