@@ -1,22 +1,22 @@
 package com.github.gverdum.app.financeiro;
 
-import com.github.verdum.app.calculo.Calculadora;
-import com.github.verdum.app.calculo.interno.OperacoesAritmeticas;
+import com.github.verdum.app.Calculadora;
 
 import java.lang.reflect.Field;
+import java.util.ServiceLoader;
 
 public class Teste {
 
     public static void main(String[] args) {
 
-        Calculadora calc = new Calculadora();
+        Calculadora calc = ServiceLoader
+                .load(Calculadora.class)
+                .findFirst()
+                .orElseThrow();
         System.out.println(calc.soma(2,3,4));
 
-        OperacoesAritmeticas op = new OperacoesAritmeticas();
-        System.out.println(op.soma(4,5,6));
-
         try {
-            Field fieldId = Calculadora.class.getDeclaredFields()[0];
+            Field fieldId = calc.getClass().getDeclaredFields()[0];
             fieldId.setAccessible(true);
             fieldId.set(calc, "def");
             fieldId.setAccessible(false);

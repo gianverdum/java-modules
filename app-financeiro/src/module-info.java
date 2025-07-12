@@ -1,3 +1,4 @@
 module app.financeiro {
-    requires app.calculo;
+    requires app.api;
+    uses com.github.verdum.app.Calculadora;
 }
