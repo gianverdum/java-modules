@@ -1,0 +1,18 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Java
+/out/
+/target/
+/bin/
+/*.class
+
+# Logs e sistema
+*.log
+*.tmp
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
